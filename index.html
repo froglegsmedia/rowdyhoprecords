@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rowdy Hop Records — Music Services</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #0a0a0a;
+    color: #f0ede6;
+    font-family: 'Space Grotesk', sans-serif;
+    min-height: 100vh;
+    padding: 0;
+  }
+
+  .page {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 56px 40px 64px;
+  }
+
+  /* Header */
+  .header {
+    border-bottom: 1px solid #2a2a2a;
+    padding-bottom: 32px;
+    margin-bottom: 40px;
+  }
+
+  .eyebrow {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #c9ff47;
+    margin-bottom: 14px;
+  }
+
+  .name {
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: #f0ede6;
+    margin-bottom: 10px;
+  }
+
+  .tagline {
+    font-size: 15px;
+    color: #888;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+
+  /* Services */
+  .services-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #555;
+    margin-bottom: 20px;
+  }
+
+  .service {
+    border: 1px solid #1e1e1e;
+    border-radius: 12px;
+    padding: 28px 28px 24px;
+    margin-bottom: 14px;
+    position: relative;
+    transition: border-color 0.2s;
+  }
+
+  .service:hover { border-color: #2e2e2e; }
+
+  .service.featured {
+    border-color: #c9ff47;
+    background: #0e110a;
+  }
+
+  .service-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #0a0a0a;
+    background: #c9ff47;
+    padding: 3px 10px;
+    border-radius: 100px;
+    display: inline-block;
+    margin-bottom: 14px;
+    font-weight: 700;
+  }
+
+  .service-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #f0ede6;
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+  }
+
+  .service-desc {
+    font-size: 14px;
+    color: #888;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  .service-includes {
+    list-style: none;
+    margin-bottom: 22px;
+  }
+
+  .service-includes li {
+    font-size: 13px;
+    color: #aaa;
+    padding: 4px 0;
+    padding-left: 18px;
+    position: relative;
+  }
+
+  .service-includes li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: #c9ff47;
+    font-size: 11px;
+  }
+
+  .service-price {
+    font-family: 'Space Mono', monospace;
+    font-size: 28px;
+    font-weight: 700;
+    color: #f0ede6;
+    letter-spacing: -0.02em;
+  }
+
+  .service.featured .service-price {
+    color: #c9ff47;
+  }
+
+  .save-badge {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: #c9ff47;
+    margin-left: 10px;
+    font-weight: 400;
+  }
+
+  /* Footer / CTA */
+  .footer {
+    border-top: 1px solid #1e1e1e;
+    margin-top: 40px;
+    padding-top: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .cta-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #555;
+    margin-bottom: 8px;
+  }
+
+  .cta-line {
+    font-size: 15px;
+    color: #f0ede6;
+    font-weight: 500;
+  }
+
+  .cta-line a {
+    color: #c9ff47;
+    text-decoration: none;
+  }
+
+  .note {
+    font-size: 12px;
+    color: #555;
+    text-align: right;
+    line-height: 1.6;
+    max-width: 240px;
+  }
+
+  /* Contact form */
+  .contact {
+    border-top: 1px solid #1e1e1e;
+    margin-top: 40px;
+    padding-top: 32px;
+  }
+
+  .contact-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #555;
+    margin-bottom: 20px;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .form-field.full { grid-column: 1 / -1; }
+
+  .form-field label {
+    font-size: 11px;
+    color: #555;
+    font-family: 'Space Mono', monospace;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .form-field input,
+  .form-field select,
+  .form-field textarea {
+    background: #111;
+    border: 1px solid #2a2a2a;
+    border-radius: 8px;
+    color: #f0ede6;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 14px;
+    padding: 10px 14px;
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+  }
+
+  .form-field input:focus,
+  .form-field select:focus,
+  .form-field textarea:focus {
+    border-color: #c9ff47;
+  }
+
+  .form-field select option { background: #111; }
+
+  .form-field textarea { resize: vertical; min-height: 90px; }
+
+  .submit-btn {
+    margin-top: 16px;
+    background: #c9ff47;
+    color: #0a0a0a;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Space Mono', monospace;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    padding: 13px 32px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+
+  .submit-btn:hover { opacity: 0.85; }
+
+  .form-note {
+    font-size: 12px;
+    color: #444;
+    margin-top: 12px;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <p class="eyebrow">Custom Music Services</p>
+    <h1 class="name">Rowdy Hop<br>Records</h1>
+    <p class="tagline">Custom production · Music video direction · Full creative packages</p>
+  </div>
+
+  <p class="services-label">Services</p>
+
+  <div class="service">
+    <h2 class="service-title">Custom Song</h2>
+    <p class="service-desc">A fully original song built from scratch — produced, mixed, and mastered for release.</p>
+    <ul class="service-includes">
+      <li>Custom beat produced to your vision</li>
+      <li>Professional mix & master</li>
+      <li>Delivered as WAV + MP3</li>
+      <li>Ready for streaming platforms</li>
+    </ul>
+    <span class="service-price">$800</span>
+  </div>
+
+  <div class="service">
+    <h2 class="service-title">Music Video</h2>
+    <p class="service-desc">A cinematic visual to match your sound — shot, edited, and color-graded for distribution.</p>
+    <ul class="service-includes">
+      <li>Professional direction & cinematography</li>
+      <li>Color grade included</li>
+      <li>1080p delivery</li>
+      <li>YouTube / social ready</li>
+    </ul>
+    <span class="service-price">$1,500</span>
+  </div>
+
+  <div class="service featured">
+    <span class="service-tag">Best value</span>
+    <h2 class="service-title">Full Package</h2>
+    <p class="service-desc">Everything you need to drop a record — original song plus music video, start to finish.</p>
+    <ul class="service-includes">
+      <li>Custom produced song</li>
+      <li>Professional mix & master</li>
+      <li>Music video directed & edited</li>
+      <li>All files delivered</li>
+    </ul>
+    <span class="service-price">$2,000</span>
+    <span class="save-badge">save $300</span>
+  </div>
+
+  <div class="contact">
+    <p class="contact-label">Ready to record? Get in touch</p>
+    <form action="https://formspree.io/f/xojykrwk" method="POST">
+      <div class="form-row">
+        <div class="form-field">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" required>
+        </div>
+        <div class="form-field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="your@email.com" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-field full">
+          <label for="service">Service</label>
+          <select id="service" name="service">
+            <option value="">Select a package...</option>
+            <option value="custom-song">Custom Song — $800</option>
+            <option value="music-video">Music Video — $1,500</option>
+            <option value="full-package">Full Package — $2,000</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-field full">
+          <label for="message">Tell me about your project</label>
+          <textarea id="message" name="message" placeholder="Genre, vibe, timeline, anything relevant..."></textarea>
+        </div>
+      </div>
+      <button type="submit" class="submit-btn">Send message</button>
+      <p class="form-note">Payment plans available · Free consultation before we start</p>
+    </form>
+  </div>
+
+</div>
+</body>
+</html>
