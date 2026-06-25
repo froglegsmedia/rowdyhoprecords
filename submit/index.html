@@ -1,208 +1,488 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Submit Your Track — Rowdy Hop Records</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;900&family=Barlow:wght@400;500&display=swap');
-  *{box-sizing:border-box;margin:0;padding:0}
-  .flyer{
-    background:#0A0A0A;
-    color:#F0EDE6;
-    font-family:'Barlow Condensed',sans-serif;
-    max-width:520px;
-    margin:0 auto;
-    padding:48px 40px 44px;
-    position:relative;
-    overflow:hidden;
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black: #0A0A0A;
+    --gold: #C9A227;
+    --gold-dim: rgba(201,162,39,0.18);
+    --gold-line: rgba(201,162,39,0.3);
+    --red: #C23B22;
+    --off-white: #F0EDE6;
+    --muted: rgba(240,237,230,0.5);
+    --faint: rgba(240,237,230,0.18);
   }
-  .top-label{
-    font-size:11px;
-    letter-spacing:.22em;
-    color:#C9A227;
-    text-transform:uppercase;
-    margin-bottom:28px;
-    font-family:'Barlow',sans-serif;
-    font-weight:500;
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--off-white);
+    font-family: 'Barlow', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    min-height: 100vh;
   }
-  .headline{
-    font-size:88px;
-    font-weight:900;
-    line-height:.92;
-    text-transform:uppercase;
-    letter-spacing:-.01em;
-    margin-bottom:6px;
+
+  /* TOP BAR */
+  .topbar {
+    border-bottom: 0.5px solid var(--gold-line);
+    padding: 16px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
-  .headline .gold{
-    color:#C9A227;
-    display:block;
-    position:relative;
+  .topbar-brand {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--off-white);
+    text-decoration: none;
   }
-  .headline .gold::after{
-    content:'';
-    display:block;
-    height:3px;
-    background:#C9A227;
-    width:100%;
-    margin-top:4px;
-    opacity:.35;
+  .topbar-deadline {
+    font-size: 12px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--red);
+    font-weight: 500;
   }
-  .subhead{
-    font-size:22px;
-    font-weight:400;
-    letter-spacing:.06em;
-    text-transform:uppercase;
-    color:#F0EDE6;
-    opacity:.55;
-    margin-bottom:36px;
-    font-family:'Barlow',sans-serif;
+
+  /* HERO */
+  .hero {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 96px 48px 72px;
+    position: relative;
   }
-  .divider{
-    border:none;
-    border-top:0.5px solid rgba(201,162,39,.3);
-    margin-bottom:28px;
+  .hero-tag {
+    display: inline-block;
+    background: var(--red);
+    color: var(--off-white);
+    font-size: 11px;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 5px 12px;
+    margin-bottom: 28px;
   }
-  .body-label{
-    font-size:10px;
-    letter-spacing:.2em;
-    color:#C9A227;
-    text-transform:uppercase;
-    font-family:'Barlow',sans-serif;
-    font-weight:500;
-    margin-bottom:14px;
+  .hero-headline {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: clamp(64px, 10vw, 108px);
+    line-height: .9;
+    text-transform: uppercase;
+    letter-spacing: -.01em;
+    margin-bottom: 10px;
   }
-  .body-text{
-    font-family:'Barlow',sans-serif;
-    font-size:15px;
-    line-height:1.6;
-    color:#F0EDE6;
-    opacity:.8;
-    margin-bottom:32px;
-    max-width:380px;
+  .hero-headline .gold {
+    color: var(--gold);
+    display: block;
   }
-  .themes{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:10px 20px;
-    margin-bottom:36px;
+  .gold-rule {
+    width: 100%;
+    height: 2px;
+    background: var(--gold);
+    opacity: .25;
+    margin-bottom: 32px;
   }
-  .theme-item{
-    display:flex;
-    align-items:center;
-    gap:8px;
-    font-size:14px;
-    letter-spacing:.08em;
-    text-transform:uppercase;
-    color:#F0EDE6;
-    opacity:.75;
-    font-family:'Barlow Condensed',sans-serif;
-    font-weight:700;
+  .hero-sub {
+    font-size: 18px;
+    color: var(--muted);
+    max-width: 540px;
+    line-height: 1.65;
+    margin-bottom: 48px;
   }
-  .theme-item::before{
-    content:'';
-    display:inline-block;
-    width:5px;
-    height:5px;
-    background:#C9A227;
-    border-radius:50%;
-    flex-shrink:0;
+  .hero-sub strong {
+    color: var(--off-white);
+    font-weight: 500;
   }
-  .submit-box{
-    border:0.5px solid rgba(201,162,39,.4);
-    padding:20px 22px;
-    margin-bottom:28px;
+
+  /* THEMES STRIP */
+  .themes-strip {
+    border-top: 0.5px solid var(--gold-line);
+    border-bottom: 0.5px solid var(--gold-line);
+    padding: 20px 48px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 32px;
+    max-width: 860px;
+    margin: 0 auto;
   }
-  .submit-box .deadline{
-    font-size:13px;
-    letter-spacing:.14em;
-    text-transform:uppercase;
-    color:#C23B22;
-    font-family:'Barlow',sans-serif;
-    font-weight:500;
-    margin-bottom:6px;
+  .theme-pill {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 7px;
   }
-  .submit-box .deadline-date{
-    font-size:32px;
-    font-weight:900;
-    text-transform:uppercase;
-    letter-spacing:.02em;
-    color:#F0EDE6;
-    margin-bottom:14px;
+  .theme-pill::before {
+    content: '';
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    background: var(--gold);
+    border-radius: 50%;
+    flex-shrink: 0;
   }
-  .submit-box .submit-line{
-    font-family:'Barlow',sans-serif;
-    font-size:13px;
-    color:#F0EDE6;
-    opacity:.6;
-    margin-bottom:4px;
+
+  /* FORM SECTION */
+  .form-section {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 72px 48px 96px;
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 80px;
+    align-items: start;
   }
-  .submit-box .email{
-    font-size:17px;
-    font-weight:700;
-    color:#C9A227;
-    letter-spacing:.04em;
-    font-family:'Barlow Condensed',sans-serif;
+  .form-aside h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 36px;
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: 16px;
   }
-  .footer{
-    display:flex;
-    justify-content:space-between;
-    align-items:flex-end;
+  .form-aside p {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 24px;
   }
-  .brand{
-    font-size:13px;
-    letter-spacing:.18em;
-    text-transform:uppercase;
-    font-family:'Barlow',sans-serif;
-    font-weight:500;
-    color:#F0EDE6;
-    opacity:.4;
+  .deadline-block {
+    border: 0.5px solid var(--gold-line);
+    padding: 16px 18px;
   }
-  .accent-bar{
-    position:absolute;
-    top:0;left:0;right:0;
-    height:3px;
-    background:#C9A227;
+  .deadline-label {
+    font-size: 10px;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--red);
+    font-weight: 600;
+    margin-bottom: 4px;
   }
-  .red-tag{
-    display:inline-block;
-    background:#C23B22;
-    color:#F0EDE6;
-    font-size:10px;
-    letter-spacing:.16em;
-    text-transform:uppercase;
-    font-family:'Barlow',sans-serif;
-    font-weight:500;
-    padding:4px 10px;
-    margin-bottom:20px;
+  .deadline-date {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 28px;
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+
+  /* FORM */
+  .submit-form { display: flex; flex-direction: column; gap: 20px; }
+
+  .field { display: flex; flex-direction: column; gap: 6px; }
+  .field label {
+    font-size: 11px;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--muted);
+  }
+  .field input,
+  .field textarea,
+  .field select {
+    background: var(--faint);
+    border: 0.5px solid rgba(240,237,230,0.2);
+    color: var(--off-white);
+    font-family: 'Barlow', sans-serif;
+    font-size: 15px;
+    padding: 12px 14px;
+    outline: none;
+    transition: border-color .15s;
+    border-radius: 0;
+    appearance: none;
+    -webkit-appearance: none;
+    width: 100%;
+  }
+  .field input::placeholder,
+  .field textarea::placeholder { color: rgba(240,237,230,0.25); }
+  .field input:focus,
+  .field textarea:focus,
+  .field select:focus { border-color: var(--gold); }
+  .field textarea { resize: vertical; min-height: 100px; }
+  .field select { cursor: pointer; }
+  .field select option { background: #1a1a1a; color: var(--off-white); }
+
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+  .file-field {
+    border: 0.5px dashed rgba(201,162,39,0.4);
+    padding: 20px 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color .15s, background .15s;
+    position: relative;
+  }
+  .file-field:hover { border-color: var(--gold); background: var(--gold-dim); }
+  .file-field input[type="file"] {
+    position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%;
+    border: none; background: none; padding: 0;
+  }
+  .file-field-label {
+    font-size: 13px;
+    color: var(--muted);
+    pointer-events: none;
+  }
+  .file-field-label span {
+    display: block;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 4px;
+  }
+  .file-name {
+    font-size: 12px;
+    color: var(--gold);
+    margin-top: 6px;
+    min-height: 16px;
+  }
+
+  .submit-btn {
+    background: var(--gold);
+    color: var(--black);
+    border: none;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 17px;
+    font-weight: 900;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    padding: 16px 32px;
+    cursor: pointer;
+    transition: opacity .15s, transform .1s;
+    width: 100%;
+  }
+  .submit-btn:hover { opacity: .88; }
+  .submit-btn:active { transform: scale(.99); }
+
+  .form-note {
+    font-size: 12px;
+    color: var(--muted);
+    text-align: center;
+    line-height: 1.5;
+  }
+
+  /* SUCCESS STATE */
+  .success-state {
+    display: none;
+    text-align: center;
+    padding: 48px 24px;
+  }
+  .success-state.visible { display: block; }
+  .success-icon {
+    font-size: 40px;
+    margin-bottom: 20px;
+  }
+  .success-state h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 32px;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+  .success-state p { color: var(--muted); font-size: 14px; }
+
+  /* FOOTER */
+  footer {
+    border-top: 0.5px solid var(--gold-line);
+    padding: 24px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 100%;
+  }
+  footer span {
+    font-size: 12px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: rgba(240,237,230,0.25);
+  }
+  footer a {
+    font-size: 12px;
+    color: var(--gold);
+    text-decoration: none;
+    letter-spacing: .08em;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    .topbar { padding: 14px 24px; }
+    .hero { padding: 64px 24px 48px; }
+    .themes-strip { padding: 16px 24px; }
+    .form-section { grid-template-columns: 1fr; gap: 40px; padding: 48px 24px 72px; }
+    .field-row { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 10px; text-align: center; padding: 20px 24px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
   }
 </style>
+</head>
+<body>
 
-<div class="flyer">
-  <div class="accent-bar"></div>
-  <p class="top-label">Rowdy Hop Records</p>
-  <div class="red-tag">Open Submission</div>
-  <div class="headline">
-    We're<br>
-    <span class="gold">Hunting</span>
-    Champions
-  </div>
-  <p class="subhead">A compilation for those who go all the way</p>
-  <hr class="divider">
-  <p class="body-label">What we're looking for</p>
-  <p class="body-text">Songs with the energy of someone who has everything to prove. Music that captures the climb, the grind, the moment it clicks — and the version of yourself on the other side of it.</p>
-  <div class="themes">
-    <div class="theme-item">Getting the gold</div>
-    <div class="theme-item">Adversity & grit</div>
-    <div class="theme-item">Trial & error</div>
-    <div class="theme-item">Becoming legendary</div>
-    <div class="theme-item">Resilience</div>
-    <div class="theme-item">Inner drive</div>
-    <div class="theme-item">Victory mindset</div>
-    <div class="theme-item">Rising to the moment</div>
-  </div>
-  <div class="submit-box">
-    <p class="deadline">Submission deadline</p>
-    <p class="deadline-date">August 31, 2026</p>
-    <p class="submit-line">Send your track + artist info to</p>
-    <p class="email">submit@rowdyhop.com</p>
-  </div>
-  <div class="footer">
-    <span class="brand">Rowdy Hop Records — Los Angeles</span>
-  </div>
+<header class="topbar">
+  <a class="topbar-brand" href="https://rowdyhoprecords.com">Rowdy Hop Records</a>
+  <span class="topbar-deadline">Deadline: August 31, 2026</span>
+</header>
+
+<section class="hero">
+  <div class="hero-tag">Open Submission</div>
+  <h1 class="hero-headline">
+    We're Hunting<br>
+    <span class="gold">Champions</span>
+  </h1>
+  <div class="gold-rule"></div>
+  <p class="hero-sub">
+    We're building a compilation for artists who have something to say about <strong>the climb</strong> — the grind, the setbacks, the moment it clicks, and the version of yourself waiting on the other side. If your music carries that energy, we want to hear it.
+  </p>
+</section>
+
+<div class="themes-strip">
+  <div class="theme-pill">Getting the gold</div>
+  <div class="theme-pill">Adversity & grit</div>
+  <div class="theme-pill">Trial & error</div>
+  <div class="theme-pill">Becoming legendary</div>
+  <div class="theme-pill">Resilience</div>
+  <div class="theme-pill">Inner drive</div>
+  <div class="theme-pill">Victory mindset</div>
+  <div class="theme-pill">Rising to the moment</div>
 </div>
+
+<section class="form-section">
+  <div class="form-aside">
+    <h2>Submit your track</h2>
+    <p>Open to independent artists from the LA community. All genres welcome — the energy is what matters.</p>
+    <p>Include a finished or near-finished recording. Beats and demos accepted at this stage.</p>
+    <div class="deadline-block">
+      <div class="deadline-label">Submission deadline</div>
+      <div class="deadline-date">August 31, 2026</div>
+    </div>
+  </div>
+
+  <div>
+    <form class="submit-form" id="submitForm" action="mailto:submit@rowdyhop.com" method="post" enctype="multipart/form-data">
+
+      <div class="field-row">
+        <div class="field">
+          <label for="artist-name">Artist name</label>
+          <input type="text" id="artist-name" name="artist_name" placeholder="Your stage name" required>
+        </div>
+        <div class="field">
+          <label for="real-name">Full name</label>
+          <input type="text" id="real-name" name="real_name" placeholder="Legal name" required>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="your@email.com" required>
+      </div>
+
+      <div class="field">
+        <label for="phone">Phone (optional)</label>
+        <input type="tel" id="phone" name="phone" placeholder="+1 (323) 000-0000">
+      </div>
+
+      <div class="field">
+        <label for="track-title">Track title</label>
+        <input type="text" id="track-title" name="track_title" placeholder="Song name" required>
+      </div>
+
+      <div class="field">
+        <label for="genre">Genre / style</label>
+        <select id="genre" name="genre">
+          <option value="" disabled selected>Select a genre</option>
+          <option>Hip-Hop / Rap</option>
+          <option>R&B / Soul</option>
+          <option>Pop</option>
+          <option>Latin</option>
+          <option>Gospel / Inspirational</option>
+          <option>Electronic / Dance</option>
+          <option>Rock / Alternative</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="stream-link">Streaming / demo link</label>
+        <input type="url" id="stream-link" name="stream_link" placeholder="SoundCloud, Drive, Dropbox, etc.">
+      </div>
+
+      <div class="field">
+        <label>Upload track file (optional)</label>
+        <div class="file-field" id="fileDropArea">
+          <input type="file" id="trackFile" name="track_file" accept=".mp3,.wav,.aiff,.m4a" onchange="updateFileName(this)">
+          <div class="file-field-label">
+            <span>Choose file</span>
+            MP3, WAV, AIFF or M4A
+          </div>
+          <div class="file-name" id="fileName"></div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="bio">Artist bio / background</label>
+        <textarea id="bio" name="bio" placeholder="Tell us who you are, where you're from, what drives you..."></textarea>
+      </div>
+
+      <div class="field">
+        <label for="socials">Social media handles</label>
+        <input type="text" id="socials" name="socials" placeholder="@handle on IG, TikTok, etc.">
+      </div>
+
+      <div class="field">
+        <label for="why">Why does this song belong on this project?</label>
+        <textarea id="why" name="why" placeholder="In your own words — what's the song about and why does it fit the theme?"></textarea>
+      </div>
+
+      <button type="submit" class="submit-btn">Send My Submission →</button>
+      <p class="form-note">By submitting you confirm you own or control all rights to this track. Questions? Email <a href="mailto:submit@rowdyhop.com" style="color:var(--gold)">submit@rowdyhop.com</a></p>
+    </form>
+
+    <div class="success-state" id="successState">
+      <div class="success-icon">🏆</div>
+      <h3>Submission received</h3>
+      <p>We'll be in touch. Stay ready.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 Rowdy Hop Records — Los Angeles</span>
+  <a href="https://rowdyhoprecords.com">rowdyhoprecords.com</a>
+</footer>
+
+<script>
+  function updateFileName(input) {
+    const label = document.getElementById('fileName');
+    label.textContent = input.files[0] ? input.files[0].name : '';
+  }
+
+  document.getElementById('submitForm').addEventListener('submit', function(e) {
+    // If you add a real backend endpoint, remove this preventDefault and handle there
+    // For now, the mailto action will handle it natively
+    // Optionally show success state after a beat
+  });
+</script>
+
+</body>
+</html>
