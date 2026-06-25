@@ -1,0 +1,208 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;900&family=Barlow:wght@400;500&display=swap');
+  *{box-sizing:border-box;margin:0;padding:0}
+  .flyer{
+    background:#0A0A0A;
+    color:#F0EDE6;
+    font-family:'Barlow Condensed',sans-serif;
+    max-width:520px;
+    margin:0 auto;
+    padding:48px 40px 44px;
+    position:relative;
+    overflow:hidden;
+  }
+  .top-label{
+    font-size:11px;
+    letter-spacing:.22em;
+    color:#C9A227;
+    text-transform:uppercase;
+    margin-bottom:28px;
+    font-family:'Barlow',sans-serif;
+    font-weight:500;
+  }
+  .headline{
+    font-size:88px;
+    font-weight:900;
+    line-height:.92;
+    text-transform:uppercase;
+    letter-spacing:-.01em;
+    margin-bottom:6px;
+  }
+  .headline .gold{
+    color:#C9A227;
+    display:block;
+    position:relative;
+  }
+  .headline .gold::after{
+    content:'';
+    display:block;
+    height:3px;
+    background:#C9A227;
+    width:100%;
+    margin-top:4px;
+    opacity:.35;
+  }
+  .subhead{
+    font-size:22px;
+    font-weight:400;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    color:#F0EDE6;
+    opacity:.55;
+    margin-bottom:36px;
+    font-family:'Barlow',sans-serif;
+  }
+  .divider{
+    border:none;
+    border-top:0.5px solid rgba(201,162,39,.3);
+    margin-bottom:28px;
+  }
+  .body-label{
+    font-size:10px;
+    letter-spacing:.2em;
+    color:#C9A227;
+    text-transform:uppercase;
+    font-family:'Barlow',sans-serif;
+    font-weight:500;
+    margin-bottom:14px;
+  }
+  .body-text{
+    font-family:'Barlow',sans-serif;
+    font-size:15px;
+    line-height:1.6;
+    color:#F0EDE6;
+    opacity:.8;
+    margin-bottom:32px;
+    max-width:380px;
+  }
+  .themes{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px 20px;
+    margin-bottom:36px;
+  }
+  .theme-item{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-size:14px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:#F0EDE6;
+    opacity:.75;
+    font-family:'Barlow Condensed',sans-serif;
+    font-weight:700;
+  }
+  .theme-item::before{
+    content:'';
+    display:inline-block;
+    width:5px;
+    height:5px;
+    background:#C9A227;
+    border-radius:50%;
+    flex-shrink:0;
+  }
+  .submit-box{
+    border:0.5px solid rgba(201,162,39,.4);
+    padding:20px 22px;
+    margin-bottom:28px;
+  }
+  .submit-box .deadline{
+    font-size:13px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:#C23B22;
+    font-family:'Barlow',sans-serif;
+    font-weight:500;
+    margin-bottom:6px;
+  }
+  .submit-box .deadline-date{
+    font-size:32px;
+    font-weight:900;
+    text-transform:uppercase;
+    letter-spacing:.02em;
+    color:#F0EDE6;
+    margin-bottom:14px;
+  }
+  .submit-box .submit-line{
+    font-family:'Barlow',sans-serif;
+    font-size:13px;
+    color:#F0EDE6;
+    opacity:.6;
+    margin-bottom:4px;
+  }
+  .submit-box .email{
+    font-size:17px;
+    font-weight:700;
+    color:#C9A227;
+    letter-spacing:.04em;
+    font-family:'Barlow Condensed',sans-serif;
+  }
+  .footer{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+  }
+  .brand{
+    font-size:13px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    font-family:'Barlow',sans-serif;
+    font-weight:500;
+    color:#F0EDE6;
+    opacity:.4;
+  }
+  .accent-bar{
+    position:absolute;
+    top:0;left:0;right:0;
+    height:3px;
+    background:#C9A227;
+  }
+  .red-tag{
+    display:inline-block;
+    background:#C23B22;
+    color:#F0EDE6;
+    font-size:10px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    font-family:'Barlow',sans-serif;
+    font-weight:500;
+    padding:4px 10px;
+    margin-bottom:20px;
+  }
+</style>
+
+<div class="flyer">
+  <div class="accent-bar"></div>
+  <p class="top-label">Rowdy Hop Records</p>
+  <div class="red-tag">Open Submission</div>
+  <div class="headline">
+    We're<br>
+    <span class="gold">Hunting</span>
+    Champions
+  </div>
+  <p class="subhead">A compilation for those who go all the way</p>
+  <hr class="divider">
+  <p class="body-label">What we're looking for</p>
+  <p class="body-text">Songs with the energy of someone who has everything to prove. Music that captures the climb, the grind, the moment it clicks — and the version of yourself on the other side of it.</p>
+  <div class="themes">
+    <div class="theme-item">Getting the gold</div>
+    <div class="theme-item">Adversity & grit</div>
+    <div class="theme-item">Trial & error</div>
+    <div class="theme-item">Becoming legendary</div>
+    <div class="theme-item">Resilience</div>
+    <div class="theme-item">Inner drive</div>
+    <div class="theme-item">Victory mindset</div>
+    <div class="theme-item">Rising to the moment</div>
+  </div>
+  <div class="submit-box">
+    <p class="deadline">Submission deadline</p>
+    <p class="deadline-date">August 31, 2026</p>
+    <p class="submit-line">Send your track + artist info to</p>
+    <p class="email">submit@rowdyhop.com</p>
+  </div>
+  <div class="footer">
+    <span class="brand">Rowdy Hop Records — Los Angeles</span>
+  </div>
+</div>
