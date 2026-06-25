@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Submit Your Track — Rowdy Hop Records</title>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
@@ -61,7 +62,7 @@
   .hero {
     max-width: 860px;
     margin: 0 auto;
-    padding: 96px 48px 72px;
+    padding: 96px 48px 36px;
     position: relative;
   }
   .hero-tag {
@@ -100,7 +101,7 @@
     color: var(--muted);
     max-width: 540px;
     line-height: 1.65;
-    margin-bottom: 48px;
+    margin-bottom: 0;
   }
   .hero-sub strong {
     color: var(--off-white);
@@ -120,7 +121,7 @@
   }
   .theme-pill {
     font-family: 'Barlow Condensed', sans-serif;
-    font-size: 13px;
+    font-size: 16px;
     font-weight: 700;
     letter-spacing: .1em;
     text-transform: uppercase;
@@ -161,7 +162,7 @@
     font-size: 14px;
     color: var(--muted);
     line-height: 1.7;
-    margin-bottom: 24px;
+    margin-bottom: 12px;
   }
   .deadline-block {
     border: 0.5px solid var(--gold-line);
@@ -183,15 +184,16 @@
   }
 
   /* FORM */
-  .submit-form { display: flex; flex-direction: column; gap: 20px; }
+  .submit-form { display: flex; flex-direction: column; gap: 36px; }
 
-  .field { display: flex; flex-direction: column; gap: 6px; }
+  .field { display: flex; flex-direction: column; gap: 10px; }
   .field label {
-    font-size: 11px;
+    font-size: 13px;
     letter-spacing: .16em;
     text-transform: uppercase;
     font-weight: 600;
     color: var(--muted);
+    padding-top: 8px;
   }
   .field input,
   .field textarea,
@@ -201,7 +203,7 @@
     color: var(--off-white);
     font-family: 'Barlow', sans-serif;
     font-size: 15px;
-    padding: 12px 14px;
+    padding: 14px 16px;
     outline: none;
     transition: border-color .15s;
     border-radius: 0;
@@ -268,6 +270,7 @@
     cursor: pointer;
     transition: opacity .15s, transform .1s;
     width: 100%;
+    margin-top: 16px;
   }
   .submit-btn:hover { opacity: .88; }
   .submit-btn:active { transform: scale(.99); }
@@ -475,40 +478,43 @@
 </footer>
 
 <script>
-  function updateFileName(input) {
-    const label = document.getElementById('fileName');
-    label.textContent = input.files[0] ? input.files[0].name : '';
-  }
+  document.addEventListener('DOMContentLoaded', function() {
+    function updateFileName(input) {
+      const label = document.getElementById('fileName');
+      label.textContent = input.files[0] ? input.files[0].name : '';
+    }
+    window.updateFileName = updateFileName;
 
-  document.getElementById('submitForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    const form = e.target;
-    const btn = form.querySelector('.submit-btn');
-    btn.textContent = 'Sending...';
-    btn.disabled = true;
+    document.getElementById('submitForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const form = e.target;
+      const btn = form.querySelector('.submit-btn');
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
 
-    const data = new FormData(form);
+      const data = new FormData(form);
 
-    try {
-      const res = await fetch('https://formspree.io/f/xnjkjeea', {
-        method: 'POST',
-        body: data,
-        headers: { 'Accept': 'application/json' }
-      });
+      try {
+        const res = await fetch('https://formspree.io/f/xnjkjeea', {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
 
-      if (res.ok) {
-        form.style.display = 'none';
-        document.getElementById('successState').classList.add('visible');
-      } else {
+        if (res.ok) {
+          form.style.display = 'none';
+          document.getElementById('successState').classList.add('visible');
+        } else {
+          btn.textContent = 'Send My Submission →';
+          btn.disabled = false;
+          alert('Something went wrong. Please email champions@rowdyhop.com directly.');
+        }
+      } catch(err) {
         btn.textContent = 'Send My Submission →';
         btn.disabled = false;
         alert('Something went wrong. Please email champions@rowdyhop.com directly.');
       }
-    } catch(err) {
-      btn.textContent = 'Send My Submission →';
-      btn.disabled = false;
-      alert('Something went wrong. Please email champions@rowdyhop.com directly.');
-    }
+    });
   });
 </script>
 
