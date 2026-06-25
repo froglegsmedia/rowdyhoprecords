@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
+<!-- saved from url=(0056)file:///C:/Users/tyler/Downloads/rowdy_hop_submit_1.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Submit Your Track — Rowdy Hop Records</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+<link href="./index_files/css2" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -340,8 +340,8 @@
 <body>
 
 <header class="topbar">
-  <a class="topbar-brand" href="https://rowdyhoprecords.com">Rowdy Hop Records</a>
-  <span class="topbar-deadline">Deadline: August 31, 2026</span>
+  <a class="topbar-brand" href="https://rowdyhoprecords.com/">Rowdy Hop Records</a>
+  <span class="topbar-deadline">Deadline: October 31, 2026</span>
 </header>
 
 <section class="hero">
@@ -358,8 +358,8 @@
 
 <div class="themes-strip">
   <div class="theme-pill">Getting the gold</div>
-  <div class="theme-pill">Adversity & grit</div>
-  <div class="theme-pill">Trial & error</div>
+  <div class="theme-pill">Adversity &amp; grit</div>
+  <div class="theme-pill">Trial &amp; error</div>
   <div class="theme-pill">Becoming legendary</div>
   <div class="theme-pill">Resilience</div>
   <div class="theme-pill">Inner drive</div>
@@ -374,27 +374,27 @@
     <p>Include a finished or near-finished recording. Beats and demos accepted at this stage.</p>
     <div class="deadline-block">
       <div class="deadline-label">Submission deadline</div>
-      <div class="deadline-date">August 31, 2026</div>
+      <div class="deadline-date">October 31, 2026</div>
     </div>
   </div>
 
   <div>
-    <form class="submit-form" id="submitForm" action="mailto:champions@rowdyhop.com" method="post" enctype="multipart/form-data">
+
 
       <div class="field-row">
         <div class="field">
           <label for="artist-name">Artist name</label>
-          <input type="text" id="artist-name" name="artist_name" placeholder="Your stage name" required>
+          <input type="text" id="artist-name" name="artist_name" placeholder="Your stage name" required="">
         </div>
         <div class="field">
           <label for="real-name">Full name</label>
-          <input type="text" id="real-name" name="real_name" placeholder="Legal name" required>
+          <input type="text" id="real-name" name="real_name" placeholder="Legal name" required="">
         </div>
       </div>
 
       <div class="field">
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="your@email.com" required>
+        <input type="email" id="email" name="email" placeholder="your@email.com" required="">
       </div>
 
       <div class="field">
@@ -404,15 +404,15 @@
 
       <div class="field">
         <label for="track-title">Track title</label>
-        <input type="text" id="track-title" name="track_title" placeholder="Song name" required>
+        <input type="text" id="track-title" name="track_title" placeholder="Song name" required="">
       </div>
 
       <div class="field">
         <label for="genre">Genre / style</label>
         <select id="genre" name="genre">
-          <option value="" disabled selected>Select a genre</option>
+          <option value="" disabled="" selected="">Select a genre</option>
           <option>Hip-Hop / Rap</option>
-          <option>R&B / Soul</option>
+          <option>R&amp;B / Soul</option>
           <option>Pop</option>
           <option>Latin</option>
           <option>Gospel / Inspirational</option>
@@ -441,7 +441,7 @@
 
       <div class="field">
         <label for="bio">Artist bio / background</label>
-        <textarea id="bio" name="bio" placeholder="Tell us who you are, where you're from, what drives you..."></textarea>
+        <textarea id="bio" name="bio" placeholder="Tell us who you are, where you&#39;re from, what drives you..."></textarea>
       </div>
 
       <div class="field">
@@ -451,12 +451,12 @@
 
       <div class="field">
         <label for="why">Why does this song belong on this project?</label>
-        <textarea id="why" name="why" placeholder="In your own words — what's the song about and why does it fit the theme?"></textarea>
+        <textarea id="why" name="why" placeholder="In your own words — what&#39;s the song about and why does it fit the theme?"></textarea>
       </div>
 
       <button type="submit" class="submit-btn">Send My Submission →</button>
       <p class="form-note">By submitting you confirm you own or control all rights to this track. Questions? Email <a href="mailto:champions@rowdyhop.com" style="color:var(--gold)">champions@rowdyhop.com</a></p>
-    </form>
+    
 
     <div class="success-state" id="successState">
       <div class="success-icon">🏆</div>
@@ -468,7 +468,10 @@
 
 <footer>
   <span>© 2026 Rowdy Hop Records — Los Angeles</span>
-  <a href="https://rowdyhoprecords.com">rowdyhoprecords.com</a>
+  <div style="display:flex;gap:24px;">
+    <a href="https://rowdyhop.com/">rowdyhop.com</a>
+    <a href="https://rowdyhoprecords.com/">rowdyhoprecords.com</a>
+  </div>
 </footer>
 
 <script>
@@ -477,12 +480,38 @@
     label.textContent = input.files[0] ? input.files[0].name : '';
   }
 
-  document.getElementById('submitForm').addEventListener('submit', function(e) {
-    // If you add a real backend endpoint, remove this preventDefault and handle there
-    // For now, the mailto action will handle it natively
-    // Optionally show success state after a beat
+  document.getElementById('submitForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const form = e.target;
+    const btn = form.querySelector('.submit-btn');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+
+    const data = new FormData(form);
+
+    try {
+      const res = await fetch('https://formspree.io/f/xnjkjeea', {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (res.ok) {
+        form.style.display = 'none';
+        document.getElementById('successState').classList.add('visible');
+      } else {
+        btn.textContent = 'Send My Submission →';
+        btn.disabled = false;
+        alert('Something went wrong. Please email champions@rowdyhop.com directly.');
+      }
+    } catch(err) {
+      btn.textContent = 'Send My Submission →';
+      btn.disabled = false;
+      alert('Something went wrong. Please email champions@rowdyhop.com directly.');
+    }
   });
 </script>
 
-</body>
-</html>
+
+
+</body></html>
